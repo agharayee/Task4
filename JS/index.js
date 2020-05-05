@@ -1,4 +1,7 @@
 const myQuestions = document.querySelector(".question");
+displayAnswer = document.querySelector(".to-correct-score");
+displayTotal = document.querySelector(".total-asked-question");
+const comment = document.querySelector(".final-comment");
 const options = document.querySelector(".options").children;
 const option1 = document.querySelector(".option1");
 const option2 = document.querySelector(".option2");
@@ -18,64 +21,64 @@ const percent = document.querySelector(".percentage");
 
 const questions = [
     {
-        q: "How is c# pronounced?",
-        options: ["Csharp", "CPlus Plus", "C", "None of the Above"],
+        q: "Which player has the fastest hat-trick in the premier league?",
+        options: ["Sadio Mane", "Van Persie", "Robbie Fowler", "None of the Above"],
         answer: 0
     },
 
     {
-        q: "Which of the folowing is not related to Javascript?",
-        options: ["Node", "React", "Angular", "None of the above"],
+        q: "Which player, with 653 games, has made the most premier League appearances?",
+        options: ["Rooney", "Ryan Giggs", "Frank Lampard", "Gareth Barry"],
         answer: 3
     },
 
     {
-        q: "How do you write an 'IF' statement in C#",
-        options: ["if (open branket){Result}", "if (condition){Result}", "if (check){display}", "All of the Above"],
+        q: "Which Team won the first Epl Title?",
+        options: ["Leeds city", "Manchester United", "Norwich City", "Newcastle Umited"],
         answer: 1
     },
 
     {
-        q: "What does a Loop do?",
-        options: ["Nothing", "it keeps Iterating till a condition is met", "Display to the console", "It is a web server"],
+        q: "Who has the record for the fastest goal in the EPL?",
+        options: ["Ledley King", "Shane Long", "Alan Shearer", "Christian Eriksen"],
         answer: 1
     },
 
     {
-        q: "What is the value of y? var x = 3; var y = 4; y *= x;",
-        options: ["1", "-1", "Undefined", "12"],
+        q: "There are two world cup trophies, what are their names?",
+        options: ["Jules Victory, Trophy", "Victory, Rimet", "Trophy, Victory", "Jules Rimet Trophy, Victory"],
         answer: 3
     },
 
-    // {
-    //     q: "Which of the following is not a programming Language",
-    //     options: ["Javascript", "C#", "React", "C"],
-    //     answer: 2
-    // },
+    {
+        q: "Two English players have won the golden boot in the world cup, who are they",
+        options: ["Rooney, Harry Kane", "Harry Kane, Michael Owen", "Gary Lineker, Harry Kane", "Michael Owen, Gary Lineker"],
+        answer: 2
+    },
 
-    // {
-    //     q: "In Asp.net what folder allows you serve static content by default?",
-    //     options: ["Any Folder", "Root Folder", "wwwroot", "All of the Above"],
-    //     answer: 2
-    // },
+    {
+        q: "Whos the player to win the UCL with three different club?",
+        options: ["C.Ronaldo", "Paco Gento", "Clarence Seedorf", "alessandro Coustacurta"],
+        answer: 2
+    },
 
-    // {
-    //     q: "In asp.net which tag helper assists in showing model binding errors?",
-    //     options: ["asp-for", "asp-page", "asp-view", "asp-validation"],
-    //     answer: 3
-    // },
+    {
+        q: "Liverpool have won six UCL, Manchester United have won four, which is the next team on the ranks to have more UCL?",
+        options: ["Leeds City", "Sheffield United", "Middlesbrough", "Nottingham Forest"],
+        answer: 3
+    },
 
-    // {
-    //     q: "Which method in a Page Model class will respond to an HTTP GET result?",
-    //     options: ["OnFetch", "OnGet", "OnPost", "OnRead"],
-    //     answer: 1
-    // }, 
+    {
+        q: "Whic player has the most UCL Medal?",
+        options: ["C Ronaldo", "Francisco Gento", "Paolo Maldini", "Clarence Seedorf"],
+        answer: 1
+    }, 
 
-    // {
-    //     q: "Which method in a Page Model class will respond to an HTTP POST result?",
-    //     options: ["OnFetch", "OnGet", "OnPost", "OnRead"],
-    //     answer: 2
-    // }
+    {
+        q: "Which formal Tottenham manager has competed in the dakar rally?",
+        options: ["David Pleat", "Harry Redknapp", "Andre Villas-Boas", "Tim Sherwood"],
+        answer: 2
+    }
 ]
 
 totalQuestion.innerHTML = questions.length;
@@ -96,16 +99,17 @@ myQuestionsNumbers.innerHTML = questionindex + 1;
 function check(element){
     if(element.id == questions[questBegin].answer){
 
-        element.classList.add("correct");
-        UpdateTracker("correct");
-        //console.log(questionindex);
-        //console.log(questions.length);
-        finalScore++;
+        // element.classList.add("correct");
+        // UpdateTracker("correct");
+        displayTotal.innerHTML = questions.length;
+        finalScore++; 
+        displayAnswer.innerHTML = finalScore + " correct";
+       
         
     }
     else{
         element.classList.add("wrong");
-        UpdateTracker("wrong");
+        // UpdateTracker("wrong");
     }
 
     disableOptions();
@@ -128,12 +132,12 @@ function enableOptions(){
 }
 
 
-function TrackerAnswer(){
-    for(let i = 0; i < questions.length; i++){
-        const div = document.createElement("div");
-        answerTracker.appendChild(div)
-    }
-}
+// function TrackerAnswer(){
+//     for(let i = 0; i < questions.length; i++){
+//         const div = document.createElement("div");
+//         answerTracker.appendChild(div)
+//     }
+// }
 
 function validate(){
     if(!options[0].classList.contains("disable")){
@@ -185,9 +189,9 @@ function RandamQuestion(){
     }    
 }
 
-function UpdateTracker(classNam){
-    answerTracker.children[questionindex -1].classList.add(classNam)
-}
+// function UpdateTracker(classNam){
+//     answerTracker.children[questionindex -1].classList.add(classNam)
+// }
 
 function quizOver(){
     document.querySelector(".quiz-over").classList.add("show");
@@ -195,6 +199,16 @@ function quizOver(){
     allQuestions.innerHTML = questions.length;
     percent.innerHTML = (finalScore / questions.length) * 100 + "%";
     console.log("ok");
+
+    if (finalScore >= 8  ){
+        comment.innerHTML = "Ooin you are doing well";
+    }
+    else if(finalScore >= 5 ){
+        comment.innerHTML = "Great Try but you can do better";
+    }
+    else if (finalScore <=4 ){
+        comment.innerHTML = "Damn you did bad, but dont quit keep reading and get better";
+    }
 }
 
 function tryAgain(){
@@ -203,5 +217,5 @@ function tryAgain(){
 
 window.onload = function(){
     RandamQuestion();
-    TrackerAnswer();
+    //TrackerAnswer();
 }
