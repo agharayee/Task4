@@ -20,35 +20,35 @@ const percent = document.querySelector(".percentage");
 
 
 const questions = [
-    {
-        q: "Which player has the fastest hat-trick in the premier league?",
-        options: ["Sadio Mane", "Van Persie", "Robbie Fowler", "None of the Above"],
-        answer: 0
-    },
+    // {
+    //     q: "Which player has the fastest hat-trick in the premier league?",
+    //     options: ["Sadio Mane", "Van Persie", "Robbie Fowler", "None of the Above"],
+    //     answer: 0
+    // },
 
-    {
-        q: "Which player, with 653 games, has made the most premier League appearances?",
-        options: ["Rooney", "Ryan Giggs", "Frank Lampard", "Gareth Barry"],
-        answer: 3
-    },
+    // {
+    //     q: "Which player, with 653 games, has made the most premier League appearances?",
+    //     options: ["Rooney", "Ryan Giggs", "Frank Lampard", "Gareth Barry"],
+    //     answer: 3
+    // },
 
-    {
-        q: "Which Team won the first Epl Title?",
-        options: ["Leeds city", "Manchester United", "Norwich City", "Newcastle Umited"],
-        answer: 1
-    },
+    // {
+    //     q: "Which Team won the first Epl Title?",
+    //     options: ["Leeds city", "Manchester United", "Norwich City", "Newcastle Umited"],
+    //     answer: 1
+    // },
 
-    {
-        q: "Who has the record for the fastest goal in the EPL?",
-        options: ["Ledley King", "Shane Long", "Alan Shearer", "Christian Eriksen"],
-        answer: 1
-    },
+    // {
+    //     q: "Who has the record for the fastest goal in the EPL?",
+    //     options: ["Ledley King", "Shane Long", "Alan Shearer", "Christian Eriksen"],
+    //     answer: 1
+    // },
 
-    {
-        q: "There are two world cup trophies, what are their names?",
-        options: ["Jules Victory, Trophy", "Victory, Rimet", "Trophy, Victory", "Jules Rimet Trophy, Victory"],
-        answer: 3
-    },
+    // {
+    //     q: "There are two world cup trophies, what are their names?",
+    //     options: ["Jules Victory, Trophy", "Victory, Rimet", "Trophy, Victory", "Jules Rimet Trophy, Victory"],
+    //     answer: 3
+    // },
 
     {
         q: "Two English players have won the golden boot in the world cup, who are they",
